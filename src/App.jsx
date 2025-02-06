@@ -70,7 +70,7 @@ function App() {
       />
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row auto-rows-max gap-4 place-items-center text-center ">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row auto-rows-max gap-4 place-items-center text-center mt-10">
         {product.length > 0 &&
           product.slice(start, end).map((prod) => {
             return (
