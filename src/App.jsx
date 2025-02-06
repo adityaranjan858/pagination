@@ -27,22 +27,26 @@ function App() {
     });
   };
 
-  const handleSelectChange=(e)=>{
-    let value = Number(e.target.value)
-    setSelectedOption(value)
-    setCurrentPage(0)
-  }
+  const handleSelectChange = (e) => {
+    let value = Number(e.target.value);
+    setSelectedOption(value);
+    setCurrentPage(0);
+  };
 
   return (
     <>
-       <div>
-        <div><h1>Pagination</h1></div>
+      <div className="text-center">
+        <div>
+          <h1 className="text-3xl font-bold uppercase ">Pagination</h1>
+        </div>
         <div>
           <form>
-            <div className="selection_container">
-              <label htmlFor="noOfProducts" className="form-label">How many products would you like to view per page?</label>
+            <div className="flex justify-center items-end flex-wrap m-3 mb-4">
+              <label htmlFor="noOfProducts" className="form-label text-xl font-medium me-2">
+                How many products would you like to view per page?
+              </label>
               <select
-                className="form-select form-select-lg"
+                className="form-select form-select-lg font-bold border-2 rounded-2xl"
                 name=""
                 id="noOfProducts"
                 onChange={handleSelectChange}
@@ -55,10 +59,8 @@ function App() {
                 <option value="50">50</option>
               </select>
             </div>
-            
           </form>
         </div>
-      </div>
       <Pagination
         pagenums={noOfPages}
         currentPageNo={currentPage}
@@ -66,19 +68,23 @@ function App() {
         prevBtnHandler={prevBtnHandler}
         nextBtnHandler={nextBtnHandler}
       />
-      {product.length > 0 &&
-        product.slice(start, end).map((prod) => {
-          return (
-            <Cards
-              key={prod.id}
-              title={prod.title}
-              image={prod.images}
-              price={prod.price}
-            />
-          );
-        })}
+      </div>
 
-      
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row auto-rows-max gap-4 place-items-center text-center ">
+        {product.length > 0 &&
+          product.slice(start, end).map((prod) => {
+            return (
+              <>
+                <Cards
+                  key={prod.id}
+                  title={prod.title}
+                  image={prod.images}
+                  price={prod.price}
+                />
+              </>
+            );
+          })}
+      </div>
     </>
   );
 }

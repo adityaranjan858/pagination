@@ -4,7 +4,7 @@ import style from "./Cards.module.css"
 const Cards = ({title, price, image}) => {
   return (
     <>
-      <div className={style.cards_container}>
+      <div className="">
         <img src={image} alt="Loading..." style={{width : "150px", height: "150px"}}/>
         <div className={style.cards_body}>
           <div className="title">{title}</div>
